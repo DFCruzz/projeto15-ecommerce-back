@@ -56,7 +56,7 @@ export async function signInValidation(req, res, next) {
         idUser: userRegistered._id,
       });
       if (tokenExists) {
-        res.local.tokenExists = tokenExists;
+        res.locals.tokenExists = tokenExists;
       }
     } else {
       return res

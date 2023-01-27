@@ -3,7 +3,7 @@ import { v4 as uuidV4 } from "uuid";
 import { usersCollection, sessionsCollection } from "../config/database.js";
 
 export async function signUp(req, res) {
-  const newUser = res.locals.user;
+  const newUser = res.locals.newUser;
 
   const hashPassword = bcrypt.hashSync(newUser.password, 10);
 
@@ -18,7 +18,7 @@ export async function signUp(req, res) {
 export async function signIn(req, res) {
   
   const userRegistered = res.locals.userRegistered;
-  const tokenExists = res.local.tokenExists;
+  const tokenExists = res.locals.tokenExists;
   const token = uuidV4();
 
   try {
