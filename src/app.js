@@ -3,7 +3,7 @@ import cors from "cors";
 import authRouter from "./routes/AuthRoutes.js";
 
 
-const PORT = process.env.PORT || 5008;
+const PORT = process.env.PORT;
 const app = express();
 
 
