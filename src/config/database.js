@@ -15,4 +15,5 @@ db = mongoClient.db();
 
 export const usersCollection = db.collection('users')
 export const sessionsCollection = db.collection('sessions')
+export const productsCollection = db.collection('prodcuts')
 
