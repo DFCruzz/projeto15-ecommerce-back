@@ -9,6 +9,7 @@ export async function signUp(req, res) {
 
   try {
     await usersCollection.insertOne({ ...newUser, password: hashPassword });
+    
     return res.status(201).send("Usuário cadastrado com sucesso");
   } catch (error) {
     return res.status(500).send("Deu algo errado no servidor");
@@ -27,10 +28,10 @@ export async function signIn(req, res) {
         { idUser: userRegistered._id },
         { $set: { token } }
       );
-      return res.status(200).send({ token });
+      return res.status(200).send({ token,id:userRegistered._id,name:userRegistered.name });
     } else {
       await sessionsCollection.insertOne({ idUser: userRegistered._id, token });
-      return res.status(200).send({ token });
+      return res.status(200).send({ token,id:userRegistered._id,name:userRegistered.name });
     }
   } catch (error) {
     return res.status(500).send("Deu algo errado no servidor");
