@@ -63,6 +63,7 @@ export async function signInValidation(req, res, next) {
         .status(422)
         .send("User not registered or Invalid UserName or Invalid Password");
     }
+    
     res.locals.userRegistered = userRegistered;
   } catch (error) {
     console.error(error);
