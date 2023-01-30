@@ -10,5 +10,4 @@ const app = express();
 
 app.use([cors(),json()],[authRouter, ProductRouter]);
 
-
 app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`));
